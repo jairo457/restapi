@@ -1,12 +1,17 @@
 const { Pool } = require('pg');
 
 const pool = new Pool({
+    connectionString: process.env.DATABASE_URL,
+    ssl: true
+});
+
+/*const pool = new Pool({
     host: 'localhost',
     user: 'jairo',
     password: '123',
     database: 'firstapi',
     port: '5432'
-});
+});*/
 
 
 const getUsers = async (req, res) => { 
