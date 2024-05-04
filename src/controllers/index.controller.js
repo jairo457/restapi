@@ -1,9 +1,18 @@
 const { Pool } = require('pg');
 
 const pool = new Pool({
-    connectionString: process.env.DATABASE_URL,
+    host: 'dpg-coptgcv79t8c73860p20-a',
+    user: 'jairo',
+    password: 'c0jQZZXcAT4AFwMykKMHNQaIyLtD6arj',
+    database: 'firstapi_6kiu',
+    port: '5432',
     ssl: true
 });
+
+/*const pool = new Pool({
+    connectionString: process.env.DATABASE_URL,
+    ssl: true
+});*/
 
 /*const pool = new Pool({
     host: 'localhost',
@@ -15,8 +24,10 @@ const pool = new Pool({
 
 
 const getUsers = async (req, res) => { 
-    const response = await pool.query('SELECT * FROM users');
-     res.status(200).json(response.rows);
+    //const response = await pool.query('SELECT NOW()');
+   const response = await pool.query('SELECT * FROM users');
+    res.json(response.rows);
+     //res.status(200).json(response.rows);
 }
 
 const getUserById = async (req, res) =>{
